@@ -13,7 +13,10 @@ const io = socketIO(server);
 
 
 io.on('connection', (socket) => {
-
+  socket.on('draw', (data) => {
+    console.log(data);
+    io.emit('draw', data);
+  })
 })
 
 app.use(express.static(__dirname + '/public'));
